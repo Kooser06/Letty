@@ -1,0 +1,32 @@
+{
+    "name": "kooser/cache",
+    "description": "A app container to wrap your web app.",
+    "homepage": "https://github.com/Kooser06/Letty",
+    "keywords": [],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/Kooser06/Letty/issues",
+        "source": "https://github.com/Kooser06/Letty"
+    },
+    "require": {
+        "psr/container": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Letty\\Cache": "./src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "roave/security-advisories": "dev-latest"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

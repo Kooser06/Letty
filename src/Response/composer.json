@@ -9,7 +9,7 @@
         "source": "https://github.com/Kooser06/Letty"
     },
     "require": {
-        "psr/http-message": "^1.0",
+        "psr/http-message": "^1.0"
     },
     "autoload": {
         "psr-4": {

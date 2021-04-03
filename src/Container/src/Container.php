@@ -81,6 +81,6 @@ final class Container implements ContainerInterface
      */
     public function has(string $id)
     {
-        return isset($this->container[$id])
+        return isset($this->container[$id]);
     }
 }

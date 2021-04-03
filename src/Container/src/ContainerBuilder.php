@@ -39,9 +39,6 @@ class ContainerBuilder implements ArrayAccess
     /** @var array $frozen */
     private $frozen = [];
 
-    /** @var array $protected */
-    private $protected = [];
-
     /** @var \SplObjectStorage A container for our builder values. */
     private $storage;
 
@@ -123,11 +120,12 @@ class ContainerBuilder implements ArrayAccess
     {
         if ($this->offsetExists($id)) {
             $this->frozen[$id] = true;
-            if (!isset($this->protected[$id]) && is_callable($this->values[$id]) && $this->storage->contains($this->values[$id])) {
-                return $this->values[$id]($this);
-            } else {
-                return $this->values[$id];
+            if (is_callable($this->values[$id])) {
+                if ($this->storage->contains($this->values[$id])) {
+                    return $this->values[$id]($this);
+                }
             }
+            return $this->values[$id];
         } else {
             throw new Exception\ContainerException('Error while retrieving the entry.');
         }
@@ -144,9 +142,6 @@ class ContainerBuilder implements ArrayAccess
     {
         if (isset($this->frozen[$id])) {
             throw new Exception\ContainerException(sprintf('This `%s` identifier is frozen.', $id));
-        }
-        if (is_callable($value)) {
-            $this->protected[$id] = true;
         }
         $this->values[$id] = $value;
     }

@@ -81,6 +81,6 @@ final class Container implements ContainerInterface
      */
     public function has(string $id)
     {
-        return array_key_exists($id, $this->container->keys);
+        return isset($this->container[$id])
     }
 }

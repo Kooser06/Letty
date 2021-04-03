@@ -60,7 +60,7 @@ final class Container implements ContainerInterface
     public function get(string $id)
     {
         if (!$this->has($id)) {
-            throw new Exception\NotFoundException('No entry was found for **this** identifier.');
+            throw new Exception\NotFoundException(sprintf('No entry was found for `%s` identifier.', $id));
         } elseif ($value = $this->retrieve($id)) {
             return $value;
         } else {

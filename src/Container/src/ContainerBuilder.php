@@ -31,7 +31,7 @@ use SplObjectStorage;
 /**
  * A builder to help build psr-11 containers.
  */
-class Builder implements ArrayAccess
+class ContainerBuilder implements ArrayAccess
 {
     /** @var array $values */
     private $values = [];
